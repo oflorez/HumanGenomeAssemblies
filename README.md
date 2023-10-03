@@ -1,4 +1,9 @@
-# HumanGenomeAssemblies
+## Human Genome Assemblies
+
+Human genome assemblies are comprehensive representations of the genetic material found within the DNA of a species, specifically the human species in the case of the human genome assembly. These assemblies serve as a critical resource for understanding the genetic blueprint that underlies human biology and health. They are the result of extensive scientific efforts aimed at deciphering the entire sequence of DNA base pairs that make up the human genome.
+
+
+
 HUMAN PANGENOMICS
 
 https://github.com/human-pangenomics/HPP_Year1_Data_Freeze_v1.0 
