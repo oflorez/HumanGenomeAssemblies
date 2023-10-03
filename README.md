@@ -23,18 +23,25 @@ To NEGATIVE orientation; Forward Primer: `CGACTCTCAGTGAGACTCTTGACAG`  Reverse Pr
 ### Step 2. Retrieve the region of interest using the specified set of primers
 Applications needed: 
 `cutadapt` (biowulf cutadapt/4.0)
-`bioawk` (biowulf bioawk/1.0)
 
 #### Example application
 
 ```
 cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GCATCAGGTTCATCATCTAGCCAAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTp.fa
-cutadapt --discard-untrimmed -g "CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0...CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
 cutadapt --discard-untrimmed -g "CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0...CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
 ```
 
 
-### Step 3. Check the size of the retrieved region(s)
+### Step 3. Verify the size of the retrieved region(s) as part of the analysis
+Applications needed: 
+`bioawk` (biowulf bioawk/1.0)
+
+#### Example application
+
+```
+bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTp.fa
+bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTn.fa
+```
 
 
 
