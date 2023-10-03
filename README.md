@@ -7,5 +7,6 @@ The Human Pangenome Reference Consortium produced sequencing data for assembly o
 This protocol can be utilized to filter specific regions of interest within assemblies, making them suitable for various other applications.
 
 ### Step 1. Define the target region of interest
-This step is customized, employing an In-Silico PCR strategy that involves searching a sequence database using a pair of PCR primers.
+This step is customized, employing an In-Silico PCR strategy that involves searching a sequence database using a pair of PCR primers.  See an example [video](https://www.youtube.com/watch?v=U8_QYwmdGYU) on YouTube channel.
 
+#### Example application: hg38, chr5:1,250,000-1,450,000
