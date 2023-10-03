@@ -29,11 +29,12 @@ Applications needed:
 
 ```
 cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GCATCAGGTTCATCATCTAGCCAAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTp.fa
-cutadapt --discard-untrimmed -g "CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0...CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
+cutadapt --discard-untrimmed -g "CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0...CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
+cutadapt --discard-untrimmed -g "CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0...CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
 ```
 
 
-### Step 3. 
+### Step 3. Check the size of the retrieved region(s)
 
 
 
