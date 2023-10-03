@@ -28,9 +28,9 @@ Applications needed:
 #### Example application
 
 ```
-cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GCATCAGGTTCATCATCTAGCCAAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUT.fa
+cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GCATCAGGTTCATCATCTAGCCAAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTp.fa
+cutadapt --discard-untrimmed -g "CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0...CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
 ```
-
 
 
 ### Step 3. 
