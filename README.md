@@ -43,9 +43,10 @@ bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTp.fa
 bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTn.fa
 ```
 
+### Step 4. Align the FASTA sequences to the reference human genome build hg38
+Applications needed: 
+`minimap2` (biowulf minimap2/2.26)
 
 
-GCTGAGAGTCACTCTGAGAACT
-GCTGAGAGTCACTCTGAGAACTGTCCCTGTATTCATTTCCCTGTACTGCTATTCCATTTG
-AAGAAAGCTTCCCAGTGGGCACATATTCAAACCATGCATCAGGTTCATCATCTAGCCAAG
-                                      TCAGGTTCATCATCTAGCCAAG
+
+
