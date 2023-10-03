@@ -14,7 +14,9 @@ This region that includes the genes *TERT*, *CLPTM1L*, and *SLC6A3.*
 
 Forward Primer: `GCTGAGAGTCACTCTGAGAACTGTC`  Reverse Primer: `GCATCAGGTTCATCATCTAGCCAAG`
 
-### Step 2. 
+### Step 2. Retrive the region of interest with the set of primers
+Software: `cutadapt` (biowulf cutadapt/4.0)
+
 
 
 GCTGAGAGTCACTCTGAGAACT
