@@ -6,16 +6,26 @@ The [Human Pangenome Reference Consortium](https://humanpangenome.org/) produced
 
 This protocol can be utilized to filter specific regions of interest within assemblies, making them suitable for various other applications.
 
+
 ### Step 1. Define the target region of interest
 This step is customized, employing an *In-Silico* PCR strategy that involves searching a sequence database using a pair of PCR primers. See an example [video](https://www.youtube.com/watch?v=U8_QYwmdGYU) on YouTube.
 
-#### Example application: UCSC Genome Browser (hg38) chr5:1,250,000-1,450,000
+#### Example application
+UCSC Genome Browser (hg38) chr5:1,250,000-1,450,000
 This region that includes the genes *TERT*, *CLPTM1L*, and *SLC6A3.*
 
 Forward Primer: `GCTGAGAGTCACTCTGAGAACTGTC`  Reverse Primer: `GCATCAGGTTCATCATCTAGCCAAG`
 
+
 ### Step 2. Retrive the region of interest with the set of primers
-Software: `cutadapt` (biowulf cutadapt/4.0)
+Applications needed: 
+`cutadapt` (biowulf cutadapt/4.0)
+`bioawk` (biowulf bioawk/1.0)
+
+#### Example application
+
+
+
 
 
 
