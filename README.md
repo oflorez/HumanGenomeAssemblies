@@ -14,7 +14,10 @@ This step is customized, employing an *In-Silico* PCR strategy that involves sea
 UCSC Genome Browser (hg38) chr5:1,250,000-1,450,000
 This region that includes the genes *TERT*, *CLPTM1L*, and *SLC6A3.*
 
-Forward Primer: `GCTGAGAGTCACTCTGAGAACTGTC`  Reverse Primer: `GCATCAGGTTCATCATCTAGCCAAG`
+Given the uncertainty regarding the orientation of the genome assembly, it is advisable to retrieve sequences in both positive and negative orientations. To accomplish this, we should prepare two sets of primers. The orientation adjustment can be facilitated using the 'complement' function available through the [Reverse Complement](https://www.bioinformatics.org/sms/index.html) web application.  
+
+To POSITIVE orientation; Forward Primer: `GCTGAGAGTCACTCTGAGAACTGTC`  Reverse Primer: `GCATCAGGTTCATCATCTAGCCAAG`  
+To NEGATIVE orientation; Forward Primer: `CGACTCTCAGTGAGACTCTTGACAG`  Reverse Primer: `CGTAGTCCAAGTAGTAGATCGGTTC`
 
 
 ### Step 2. Retrieve the region of interest using the specified set of primers
@@ -29,6 +32,8 @@ cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GC
 ```
 
 
+
+### Step 3. 
 
 
 
