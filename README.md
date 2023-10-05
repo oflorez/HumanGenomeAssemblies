@@ -21,7 +21,7 @@ To NEGATIVE orientation; Forward Primer: `CGACTCTCAGTGAGACTCTTGACAG`  Reverse Pr
 
 
 ### Step 2. Retrieve the region of interest using the specified set of primers
-Applications needed: 
+Applications: 
 `cutadapt` (biowulf cutadapt/4.0)
 
 #### Example application
@@ -33,7 +33,7 @@ cutadapt --discard-untrimmed -g "CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0...CG
 
 
 ### Step 3. Verify the size of the retrieved region(s) as part of the analysis
-Applications needed: 
+Applications: 
 `bioawk` (biowulf bioawk/1.0)
 
 #### Example application
@@ -44,7 +44,7 @@ bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTn.fa
 ```
 
 ### Step 4. Align the FASTA sequences to the reference human genome build hg38
-Applications needed: 
+Applications: 
 `minimap2` (biowulf minimap2/2.26)
 
 
