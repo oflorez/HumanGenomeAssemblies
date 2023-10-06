@@ -8,6 +8,8 @@
 # load cutadapt/4.0
 module load cutadapt/4.0
 
+## Author: Oscar Florez-Vargas
+
 ##########################
 ## == Set Parameters == ##
 
@@ -29,8 +31,8 @@ reverseNEG2="GGGTCACCCGTGTATAAGTTTGGTA"
 error_rate=0.1  # 10% error rate
 
 ## Set path to where FASTA files are being stored
-PATH_TO_FILES=/data/Prokunina_Group/GenomeAssemblies/KolmogorovLab/assemblies
-OUTDIR=/data/Prokunina_Group/GenomeAssemblies/KolmogorovLab/retrievedRegions
+PATH_TO_FILES=/data/Prokunina_Group/GenomeAssemblies/HPRC/assemblies
+OUTDIR=/data/Prokunina_Group/GenomeAssemblies/HPRC/retrievedRegions
 
 ##########################
 
@@ -39,58 +41,56 @@ if [ ! -d $OUTDIR/$genomicRegion ]; then
   mkdir -p $OUTDIR/$genomicRegion;
 fi
 
-## Loop for the set of primers POSITIVE strand
-for i in $(ls "$PATH_TO_FILES"/*.fasta); do \
-        
-	filename=$(basename "$i")
-	temporal_file="$OUTDIR/$genomicRegion/tmpPOS_${filename%???}"
-	output_file="$OUTDIR/$genomicRegion/setPOS_${filename%???}"
 
-	## Perform the first in-silico PCR
-        cutadapt --discard-untrimmed \
-        -g "$forwardPOS1;max_error_rate=$error_rate...$reversePOS1;max_error_rate=$error_rate" \
-	-o "$temporal_file" "$i" 2> /dev/null
+## Loop for the set of primers POSITIVE and NEGATIVE strand
+for i in $(ls "$PATH_TO_FILES"/*.fa.gz); do \
 
-	## Perform the second in-silico PCR
-  	cutadapt --discard-untrimmed \
-	-g "$forwardPOS2;max_error_rate=$error_rate...$reversePOS2;max_error_rate=$error_rate" \
-	-o "$output_file" "$temporal_file" 2> /dev/null
-
-	## Delete the temporal file
-	rm "$temporal_file"
-
-	## Check if the output file is empty and remove it if it is
-	if [ ! -s "$output_file" ]; then
-      		rm "$output_file"
-	fi
-        
-done
-
-
-## Loop for the set of primers NEGATIVE strand
-for i in $(ls "$PATH_TO_FILES"/*.fasta); do \
-
+        ## Steps for performing in-silico PCR on the POSITIVE strand
         filename=$(basename "$i")
-        temporal_file="$OUTDIR/$genomicRegion/tmpNEG_${filename%???}"
-        output_file="$OUTDIR/$genomicRegion/setNEG_${filename%???}"
+        temporal_file="$OUTDIR/$genomicRegion/tmpPOS_${filename%???}"
+        output_file="$OUTDIR/$genomicRegion/setPOS_${filename%???}"
 
         ## Perform the first in-silico PCR
         cutadapt --discard-untrimmed \
-        -g "$reverseNEG1;max_error_rate=$error_rate...$forwardNEG1;max_error_rate=$error_rate" \
-        -o "$output_file" "$i" 2> /dev/null
+        -g "$forwardPOS1;max_error_rate=$error_rate...$reversePOS1;max_error_rate=$error_rate" \
+        -o "$temporal_file" "$i" 2> /dev/null
 
         ## Perform the second in-silico PCR
         cutadapt --discard-untrimmed \
-        -g "$reverseNEG2;max_error_rate=$error_rate...$forwardNEG2;max_error_rate=$error_rate" \
-        -o "$OUTDIR/$genomicRegion/setNEG_${filename%???}" "$output_file" 2> /dev/null
+        -g "$forwardPOS2;max_error_rate=$error_rate...$reversePOS2;max_error_rate=$error_rate" \
+        -o "$output_file" "$temporal_file" 2> /dev/null
 
         ## Delete the temporal file
         rm "$temporal_file"
 
-        ## Check if the output file is empty and remove it if it is
+        ## Check whether the output file resulting from the in-silico PCR on the POSITIVE strand is empty,
+        ## and if it is, proceed to conduct the in-silico PCR on the NEGATIVE strand
         if [ ! -s "$output_file" ]; then
                 rm "$output_file"
+
+                ## Steps for performing in-silico PCR on the NEGATIVE strand
+                filename=$(basename "$i")
+                temporal_file="$OUTDIR/$genomicRegion/tmpNEG_${filename%???}"
+                output_file="$OUTDIR/$genomicRegion/setNEG_${filename%???}"
+
+                ## Perform the first in-silico PCR
+                cutadapt --discard-untrimmed \
+                -g "$reverseNEG1;max_error_rate=$error_rate...$forwardNEG1;max_error_rate=$error_rate" \
+                -o "$temporal_file" "$i" 2> /dev/null
+
+                ## Perform the second in-silico PCR
+                cutadapt --discard-untrimmed \
+                -g "$reverseNEG2;max_error_rate=$error_rate...$forwardNEG2;max_error_rate=$error_rate" \
+                -o "$output_file" "$temporal_file" 2> /dev/null
+
+                ## Delete the temporal file
+                rm "$temporal_file"
+
+                ## Check if the output file is empty and remove it if it is
+                if [ ! -s "$output_file" ]; then
+                        rm "$output_file"
+                fi
+
         fi
 
 done
-
