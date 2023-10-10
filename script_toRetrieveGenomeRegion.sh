@@ -37,8 +37,16 @@ OUTDIR=/data/Prokunina_Group/GenomeAssemblies/HPRC/retrievedRegions
 ##########################
 
 
+# Create the genomic region folder
 if [ ! -d $OUTDIR/$genomicRegion ]; then
-  mkdir -p $OUTDIR/$genomicRegion;
+  mkdir -p $OUTDIR/$genomicRegion
+  chmod 775 $OUTDIR/$genomicRegion;
+fi
+
+# Create the "fasta_files" folder
+if [ ! -d $OUTDIR/$genomicRegion/fasta_files ]; then
+  mkdir -p $OUTDIR/$genomicRegion/fasta_files
+  chmod 775 $OUTDIR/$genomicRegion/fasta_files;
 fi
 
 
@@ -47,8 +55,8 @@ for i in $(ls "$PATH_TO_FILES"/*.fa.gz); do \
 
         ## Steps for performing in-silico PCR on the POSITIVE strand
         filename=$(basename "$i")
-        temporal_file="$OUTDIR/$genomicRegion/tmpPOS_${filename%???}"
-        output_file="$OUTDIR/$genomicRegion/setPOS_${filename%???}"
+        temporal_file="$OUTDIR/$genomicRegion/fasta_files/tmpPOS_${filename%???}"
+        output_file="$OUTDIR/$genomicRegion/fasta_files/setPOS_${filename%???}"
 
         ## Perform the first in-silico PCR
         cutadapt --discard-untrimmed \
@@ -70,8 +78,8 @@ for i in $(ls "$PATH_TO_FILES"/*.fa.gz); do \
 
                 ## Steps for performing in-silico PCR on the NEGATIVE strand
                 filename=$(basename "$i")
-                temporal_file="$OUTDIR/$genomicRegion/tmpNEG_${filename%???}"
-                output_file="$OUTDIR/$genomicRegion/setNEG_${filename%???}"
+                temporal_file="$OUTDIR/$genomicRegion/fasta_files/tmpNEG_${filename%???}"
+                output_file="$OUTDIR/$genomicRegion/fasta_files/setNEG_${filename%???}"
 
                 ## Perform the first in-silico PCR
                 cutadapt --discard-untrimmed \
@@ -93,4 +101,13 @@ for i in $(ls "$PATH_TO_FILES"/*.fa.gz); do \
 
         fi
 
+done
+
+
+## Loop for rename the headers (sequence identifiers) of the reads in a FASTA file with the name of the file itself
+cd $OUTDIR/$genomicRegion/fasta_files
+
+for file in *.fa; do
+    filename="${file%.fa}"
+    sed -i "s/^>.*/>$filename/" "$file"
 done
