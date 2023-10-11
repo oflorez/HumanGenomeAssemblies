@@ -47,6 +47,22 @@ bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTn.fa
 Applications: 
 `minimap2` (biowulf minimap2/2.26)
 
+in Biowulf environmet, module load the minimamp2 and Samtools to run the script
+
+```
+# load module
+ml minimap2 samtools
+
+# script
+
+# -a: Generate CIGAR and output alignments in the SAM format
+# -Y: In SAM output, use soft clipping for supplementary alignments.
+# -t: how many thread
+
+minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
+
+```
+
 
 
 
