@@ -68,8 +68,46 @@ minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFas
 Application: `straglr` (biowulf straglr v1.4)
 
 To install straglr, first we need to install conda/mamba in biowulf and install the tool in the mamba environment.
+the link (https://hpc.nih.gov/docs/diy_installation/conda.html) provdies steps to install mamba environment.
 
+Once the environmet is set, we can downlaod and install straglr.
 
+clone github folder from their repository and go to the folder:
+
+```
+git clone https://github.com/bcgsc/straglr.git
+
+cd straglr
+
+```
+
+use conda/mamba to create environmet and prepare need tools for the straglr
+
+```
+mamba env create --name straglr --file=environment.yaml
+```
+once create environment name `straglr`, we can activate it and install. 
+
+```
+mamba activate straglr
+
+# can choose version we want to install, for this example is version 1.4.0
+# for example: mamba install straglr=1.2.0 is version 1.2.0 
+
+mamba install straglr=1.4.0
+```
+
+Check version to see if successful installation
+
+```
+straglr.py --version
+```
+
+to see if it can execute, type
+
+```
+./straglr.py
+```
 
 
 
