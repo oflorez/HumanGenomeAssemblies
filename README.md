@@ -63,6 +63,13 @@ minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFas
 
 ```
 
+### Step 5. Detect repeat use starglr
+
+Application: `straglr` (biowulf straglr v1.4)
+
+To install straglr, first we need to install conda/mamba in biowulf and install the tool in the mamba environment.
+
+
 
 
 
