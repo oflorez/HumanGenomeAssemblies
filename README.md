@@ -133,3 +133,5 @@ For example, if we want to find the number of repeats inside CLPTM1L exon 7 and 
 8. Now open new text file, input the info in tab seperate format `chr5  1332762  1333968  GGGACTACTGTATACACACCGGATGAGGATAAGGG` and save the file such as `target_region.txt`
 
 
+**Run straglr with region file**
+
