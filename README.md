@@ -67,6 +67,8 @@ minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFas
 
 Application: `straglr` (biowulf straglr v1.4)
 
+**Installation**
+
 To install straglr, first we need to install conda/mamba in biowulf and install the tool in the mamba environment.
 the link (https://hpc.nih.gov/docs/diy_installation/conda.html) provdies steps to install mamba environment.
 
@@ -108,6 +110,11 @@ to see if it can execute, type
 ```
 ./straglr.py
 ```
+**Making bed file for region of interest**
 
+To utlizer straglr tool to detect repeat, we need to create a bed file of region of interest and repeat sequence.
+For example, if we want to search repeat number between CLPTM1L exon7 and exon8, first we need to retrive sequence from UCSC genome browser or other similiar tools.
+In the browser, go to human genome 38 in UCSC genome browser: (https://genome.ucsc.edu/cgi-bin/hgGateway) and search gene of interest, for this exmaple, CLPTM1L.
+Zoom in to the exon7 and exon8 location, once located, the box on the top will tell 
 
 
