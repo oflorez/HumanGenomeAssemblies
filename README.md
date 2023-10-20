@@ -113,8 +113,12 @@ to see if it can execute, type
 **Making bed file for region of interest**
 
 To utlizer straglr tool to detect repeat, we need to create a bed file of region of interest and repeat sequence.
+
 For example, if we want to search repeat number between CLPTM1L exon7 and exon8, first we need to retrive sequence from UCSC genome browser or other similiar tools.
+
 In the browser, go to human genome 38 in UCSC genome browser: (https://genome.ucsc.edu/cgi-bin/hgGateway) and search gene of interest, for this exmaple, CLPTM1L.
-Zoom in to the exon7 and exon8 location, once located, the box on the top will tell 
+Zoom in to the exon7 and exon8 location, once located, the box on the top will tell the chromosome location: `chr5:1330335-1331824`
+
+To get the repeat sequence, select `vuew` -> `DNA` -> and select `get DNA` and it will show the sequenec of this target region. 
 
 
