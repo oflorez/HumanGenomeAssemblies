@@ -120,14 +120,16 @@ For example, if we want to find the number of repeats inside CLPTM1L exon 7 and 
 
 2. Search for the gene of interest, in this case, CLPTM1L.
 
-3. Zoom in on the location that corresponds to exon 7 and exon 8. Once you've located it, the information box at the top will display the chromosome location. `chr5:1332762-1333968`
+3. Zoom in on the location that cover the repeat region between exon 7 and exon 8. Once you've located it, the information box at the top will display the chromosome location. `chr5:1332762-1333968`
 
 4. To obtain the sequence, select `View` and then choose `DNA` Next, click on `get DNA`. it will show the sequenec of this target region.
 
 5. Once click `get DNA`, the window will show the sequence in FASTA format of this region, copy the information and go to Tandem Repeat Finder website (https://tandem.bu.edu/trf/submit_options)
 
-6. select `Basic` and paste the sequence with header in the box and click `Submit sequence`
+6. Select `Basic` and paste the sequence with header in the box and click `Submit sequence`
 
-7. once it's done, click `Tandem Repeats Report` and it will show the result window 
+7. Once it's done, click `Tandem Repeats Report` and it will show the result window. Select the highest score row and copy the `Consensus pattern`. For this example: `GGGACTACTGTATACACACCGGATGAGGATAAGGG`
+
+8. Now open new text file, input the info in tab seperate format `chr5  1332762  1333968  GGGACTACTGTATACACACCGGATGAGGATAAGGG` and save the file such as `target_region.txt`
 
 
