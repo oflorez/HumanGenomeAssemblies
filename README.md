@@ -122,7 +122,7 @@ For example, if we want to find the number of repeats inside CLPTM1L exon 7 and 
 
 3. Zoom in on the location that cover the repeat region between exon 7 and exon 8. Once you've located it, the information box at the top will display the chromosome location. `chr5:1332762-1333968`
 
-4. To obtain the sequence, select `View` and then choose `DNA` Next, click on `get DNA`. it will show the sequenec of this target region.
+4. To obtain the sequence, select `View` and then choose `DNA` Next, click on `get DNA` with `Mask repeats: to lower case` selected. it will show the sequenec of this target region.
 
 5. Once click `get DNA`, the window will show the sequence in FASTA format of this region, copy the information and go to Tandem Repeat Finder website (https://tandem.bu.edu/trf/submit_options)
 
