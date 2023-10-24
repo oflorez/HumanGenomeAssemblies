@@ -49,18 +49,23 @@ Applications:
 
 in Biowulf environmet, module load the minimamp2 and Samtools to run the script
 
+- creat a sinteractive envirnment
+`
+sinteractive --cpus-per-task=10 --mem=50g
+`
+- Once created, load module
+`ml minimap2 samtools`
+
+- run the minimap2 commnad
+
 ```
-# load module
-ml minimap2 samtools
+minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
+```
 
-# script
-
+```
 # -a: Generate CIGAR and output alignments in the SAM format
 # -Y: In SAM output, use soft clipping for supplementary alignments.
-# -t: how many thread
-
-minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
-
+# -t/-@: how many thread
 ```
 
 ### Step 5. Detect repeat use starglr
