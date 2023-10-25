@@ -113,7 +113,7 @@ straglr.py --version
 to see if it can execute, type
 
 ```
-./straglr.py
+straglr.py
 ```
 **Making bed file for region of interest**
 
@@ -139,4 +139,16 @@ For example, if we want to find the number of repeats inside CLPTM1L exon 7 and 
 
 
 **Run straglr with region file**
+
+After creating region file for straglr tool, we can now run the tool.
+
+1. Activate mamba environmet `mamba activate straglr` and run the command line below:
+
+```
+straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa output --min_support 1 --min_cluster_size 1 --loci target_region.txt
+
+```
+
+Once finished, it will generate `output.bed` and `output.tsv` files, we will use `output.tsv` to combined genotype result using the script called `Task3_scoringTRnSNP_xxx.sh`
+
 
