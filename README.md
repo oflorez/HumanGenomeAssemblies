@@ -85,7 +85,6 @@ clone github folder from their repository and go to the folder:
 git clone https://github.com/bcgsc/straglr.git
 
 cd straglr
-
 ```
 
 use conda/mamba to create environmet and prepare need tools for the straglr
@@ -97,10 +96,8 @@ once create environment name `straglr`, we can activate it and install.
 
 ```
 mamba activate straglr
-
 # can choose version we want to install, for this example is version 1.4.0
 # for example: mamba install straglr=1.2.0 is version 1.2.0 
-
 mamba install straglr=1.4.0
 ```
 
@@ -146,7 +143,6 @@ After creating region file for straglr tool, we can now run the tool.
 
 ```
 straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa output --min_support 1 --min_cluster_size 1 --loci target_region.txt
-
 ```
 
 Once finished, it will generate `output.bed` and `output.tsv` files, we will use `output.tsv` to combined genotype result using the script called `Task3_scoringTRnSNP_xxx.sh`
