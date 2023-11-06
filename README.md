@@ -77,7 +77,6 @@ in Biowulf environmet, module load the straglr to run the tool
 
 ```
 ml straglr
-
 ```
 
 to see if it can execute, and check version type
