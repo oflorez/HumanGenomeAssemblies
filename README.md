@@ -84,6 +84,9 @@ to see if it can execute, and check version type
 ```
 straglr.py --version 
 ```
+for more information about this tool, visit their github page:
+https://github.com/bcgsc/straglr
+
 **Making bed file for region of interest**
 
 To utilize the Straglr tool for repeat detection, you need to create a BED file that defines the regions of interest and the repeat sequences you want to analyze.
