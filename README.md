@@ -114,7 +114,7 @@ For example, if we want to find the number of repeats inside CLPTM1L exon 7 and 
 
 After creating region file for straglr tool, we can now run the tool.
 
-1. Activate mamba environmet `mamba activate straglr` and run the command line below:
+1. module load the tool and run the command line below:
 
 ```
 straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa output --min_support 1 --min_cluster_size 1 --loci target_region.txt
