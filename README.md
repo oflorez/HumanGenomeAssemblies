@@ -59,7 +59,7 @@ sinteractive --cpus-per-task=10 --mem=50g
 - run the minimap2 commnad
 
 ```
-minimap2 -Y -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
+minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
 ```
 
 ```
