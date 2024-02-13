@@ -31,6 +31,8 @@ cutadapt --discard-untrimmed -g "GCTGAGAGTCACTCTGAGAACTGTC;max_error_rate=0...GC
 cutadapt --discard-untrimmed -g "CGTAGTCCAAGTAGTAGATCGGTTC;max_error_rate=0...CGACTCTCAGTGAGACTCTTGACAG;max_error_rate=0" $INPUT.fa 2> /dev/null > OUTPUTn.fa
 ```
 
+## The implementation of Steps 1 and 2 is encapsulated within the script named "script_toRetrieveGenomeRegion.sh".
+
 
 ### Step 3. Verify the size of the retrieved region(s) as part of the analysis
 Applications: 
