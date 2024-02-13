@@ -65,12 +65,14 @@ minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/
 Application: 
 `straglr` (straglr v1.4)
 
-**Generate a target_region.txt file that includes the repeat consensus sequence to facilitate scoring tandem repeats within the genomic region of interest**
+#### Example application
+
+*Generate a target_region.txt file that includes the repeat consensus sequence to facilitate scoring tandem repeats within the genomic region of interest*
 ```
 chr5  1332762  1333968  GGGACTACTGTATACACACCGGATGAGGATAAGGG
 ```
 
-**Run straglr with target_region.txt file**
+*Run straglr with target_region.txt file*
 ```
 straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa output --min_support 1 --min_cluster_size 1 --loci target_region.txt
 ```
