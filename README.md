@@ -46,17 +46,9 @@ bioawk -c fastx '{ print $name, length($seq) }' < OUTPUTn.fa
 ### Step 4. Align the FASTA sequences to the reference human genome build hg38
 Applications: 
 `minimap2` (minimap2/2.26)
+`samtools` (samtools/1.19)
 
-in Biowulf environmet, module load the minimamp2 and Samtools to run the script
-
-- creat a sinteractive envirnment
-`
-sinteractive --cpus-per-task=10 --mem=50g
-`
-- Once created, load module
-`ml minimap2 samtools`
-
-- run the minimap2 commnad
+#### Example application
 
 ```
 minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
@@ -69,9 +61,11 @@ minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/
 ```
 
 ### Step 5. Detect repeat use starglr
+Application: 
+`straglr` (straglr v1.4)
+Information about this tool, visit their github page: https://github.com/bcgsc/straglr
 
-Application: `straglr` (straglr v1.4)
-
+#### Example application
 
 in Biowulf environmet, module load the straglr to run the tool
 
@@ -87,39 +81,17 @@ straglr.py --version
 for more information about this tool, visit their github page:
 https://github.com/bcgsc/straglr
 
-**Making bed file for region of interest**
+#### Example application
 
-To utilize the Straglr tool for repeat detection, you need to create a BED file that defines the regions of interest and the repeat sequences you want to analyze.
+**Generate a target_region.txt file that includes the repeat consensus sequence to facilitate scoring tandem repeats within the genomic region of interest**
+```
+chr5  1332762  1333968  GGGACTACTGTATACACACCGGATGAGGATAAGGG
+```
 
-For example, if we want to find the number of repeats inside CLPTM1L exon 7 and exon 8.
-
-1. Retrive sequence from UCSC genome browser or other similiar tools. Access the human genome version 38 in the UCSC Genome Browser (https://genome.ucsc.edu/cgi-bin/hgGateway).
-
-2. Search for the gene of interest, in this case, CLPTM1L.
-
-3. Zoom in on the location that cover the repeat region between exon 7 and exon 8. Once you've located it, the information box at the top will display the chromosome location. `chr5:1332762-1333968`
-
-4. To obtain the sequence, select `View` and then choose `DNA` Next, click on `get DNA` with `Mask repeats: to lower case` selected. it will show the sequenec of this target region.
-
-5. Once click `get DNA`, the window will show the sequence in FASTA format of this region, copy the information and go to Tandem Repeat Finder website (https://tandem.bu.edu/trf/submit_options)
-
-6. Select `Basic` and paste the sequence with header in the box and click `Submit sequence`
-
-7. Once it's done, click `Tandem Repeats Report` and it will show the result window. Select the highest score row and copy the `Consensus pattern`. For this example: `GGGACTACTGTATACACACCGGATGAGGATAAGGG`
-
-8. Now open new text file, input the info in tab seperate format `chr5  1332762  1333968  GGGACTACTGTATACACACCGGATGAGGATAAGGG` and save the file such as `target_region.txt`
-
-
-**Run straglr with region file**
-
-After creating region file for straglr tool, we can now run the tool.
-
-1. module load the tool and run the command line below:
-
+**Run straglr with target_region.txt file**
 ```
 straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa output --min_support 1 --min_cluster_size 1 --loci target_region.txt
 ```
 
-Once finished, it will generate `output.bed` and `output.tsv` files, we will use `output.tsv` to combined genotype result using the script called `Task3_scoringTRnSNP_xxx.sh`
-
+Upon completion, the process will generate two files: output.bed and output.tsv. The latter, output.tsv, will be utilized for consolidating the tandem repeats detected by read, corresponding to each assembly sample.
 
