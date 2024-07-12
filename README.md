@@ -79,3 +79,8 @@ straglr.py input.bam /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFa
 
 Upon completion, the process will generate two files: output.bed and output.tsv. The latter, output.tsv, will be utilized for consolidating the tandem repeats detected by read, corresponding to each assembly sample. If users need more information about the tool, they can visit its GitHub page at: https://github.com/bcgsc/straglr
 
+
+
+REFERENCE
+
+Florez-Vargas O, Ho O, Hogshead M, Lee CH, Papenberg B, Forsythe K, Jones K, Luo W, Teshome K, Blauwendraat C, Billingsley K, Kolmogorov M, Meredith M, Paten B, Chari R, Zhang C, Schneekloth J, Machiela M, Chanock S, Gadalla S, Savage S, Mbulaiteye S, Prokunina-Olsson L. Genetic regulation of TERT splicing contributes to reduced or elevated cancer risk by altering cellular replicative potential (under review) 
