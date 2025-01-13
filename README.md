@@ -1,4 +1,4 @@
-# Retrieving Target Regions from Human Genome Assemblies
+# Retrieving Target Regions from Human Genome Assemblies for Tandem Repeat Analysis and Other Genetic Applications
 
 Genome assemblies are comprehensive representations of the genetic material found within the DNA of a species, specifically the human species in the case of the human genome assembly. These assemblies serve as a critical resource for understanding the genetic blueprint that underlies human biology and health. They are the result of extensive scientific efforts aimed at deciphering the entire sequence of DNA base pairs that make up the human genome.
 
@@ -61,7 +61,7 @@ minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/
 # -t/-@: how many thread
 ```
 
-### Step 5. Detect repeat use starglr
+### Step 5. Detect repeat use Straglr
 Application: 
 `straglr` (straglr v1.4)
 
@@ -83,4 +83,4 @@ Upon completion, the process will generate two files: output.bed and output.tsv.
 
 REFERENCE
 
-Florez-Vargas O, Ho O, Hogshead M, Lee CH, Papenberg B, Forsythe K, Jones K, Luo W, Teshome K, Blauwendraat C, Billingsley K, Kolmogorov M, Meredith M, Paten B, Chari R, Zhang C, Schneekloth J, Machiela M, Chanock S, Gadalla S, Savage S, Mbulaiteye S, Prokunina-Olsson L. Genetic regulation of TERT splicing contributes to reduced or elevated cancer risk by altering cellular replicative potential (under review) 
+Florez-Vargas O, Ho M, Hogshead MH, Papenberg BW, Lee CH, Forsythe K, Jones K, Luo W, Teshome K, Blauwendraat C, Billingsley KJ, Kolmogorov M, Meredith M, Paten B, Chari R, Zhang C, Schneekloth JS, Machiela MJ, Chanock SJ, Gadalla SM, Savage SA, Mbulaiteye SM, Prokunina-Olsson L. Genetic regulation of TERT splicing affects cancer risk by altering cellular longevity and replicative potential. 2025
