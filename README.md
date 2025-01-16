@@ -1,4 +1,4 @@
-# Analysis of Tandem Repeats and Other Genetic and Genomic Variants in Target Regions of Human Genome Assemblies
+# Analysis of Tandem Repeats and Other Genetic and Genomic Variants in Human Genome Assemblies
 
 Genome assemblies are comprehensive representations of the genetic material found within the DNA of a species, specifically the human species in the case of the human genome assembly. These assemblies serve as a critical resource for understanding the genetic blueprint that underlies human biology and health. They are the result of extensive scientific efforts aimed at deciphering the entire sequence of DNA base pairs that make up the human genome.
 
