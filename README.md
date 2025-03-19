@@ -57,8 +57,8 @@ minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/
 
 ```
 # -a: Generate CIGAR and output alignments in the SAM format
-# -Y: In SAM output, use soft clipping for supplementary alignments.
 # -t/-@: how many thread
+
 ```
 
 ### Step 5. Detect repeat use Straglr
