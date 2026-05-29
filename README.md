@@ -52,12 +52,13 @@ Applications:
 #### Example application
 
 ```
-minimap2 -t 6 -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
+minimap2 -t 6 -Y -a /fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa input.fa | samtools sort -@ 6 -o output.bam
 ```
 
 ```
+# -Y: Enable soft-clipping so that read sequences can be assessed directly from the BAM file, required for straglr analysis
 # -a: Generate CIGAR and output alignments in the SAM format
-# -t/-@: how many thread
+# -t/-@: How many thread
 
 ```
 
